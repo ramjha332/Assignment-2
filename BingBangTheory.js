@@ -5235,10 +5235,36 @@ var BingBangTheory =
   }
 }
 
+//function to search with Season number and Episode Number
 SeasonNumberEpisodeNumber = (SeasonNumber, EpisodeNumber) => {
-const FindSeasonNumber = BingBangTheory._embedded.episodes.find(item => (item.season == SeasonNumber) && (item.number == EpisodeNumber))
-console.log(`Details of Episode ${EpisodeNumber} of Season ${SeasonNumber} are:-`, FindSeasonNumber)
+  const FindSeasonAndEpisodeNumber = BingBangTheory._embedded.episodes.find(item => (item.season == SeasonNumber) && (item.number == EpisodeNumber))
+  if(FindSeasonAndEpisodeNumber){
+  console.log(`Details of Episode ${EpisodeNumber} of Season ${SeasonNumber} are:-`, FindSeasonAndEpisodeNumber)
+  } else {
+    console.log(`Season No.${SeasonNumber} or Episode No.${EpisodeNumber} is invalid`)
+  }
 }
-    
-SeasonNumberEpisodeNumber(1,8)
-    
+ 
+//function to search with Episode ID
+EpisodeID = (Episodeid) => {
+  const FindEpisodeId = BingBangTheory._embedded.episodes.find(item => (item.id == Episodeid))
+  if(FindEpisodeId){
+  console.log(`Details of Episode ID '${Episodeid}' are:-`, FindEpisodeId)
+  } else {
+  console.log(`Episode ID ${Episodeid} is not present`)
+  }
+}
+
+//function to search with Episode name
+EpisodeName = (Episodename) => { 
+  const FindEpisodeName = BingBangTheory._embedded.episodes.find(item => (item.name.toLowerCase() == Episodename.toLowerCase()))
+  if(FindEpisodeName){
+  console.log(`Details of episode name '${Episodename}' are:-`, FindEpisodeName)
+  } else {
+  console.log(`Episode name '${Episodename}' is incorrect`)
+  }
+}
+ 
+// EpisodeName("The big bran hypothesis")
+// SeasonNumberEpisodeNumber(1,3)
+// EpisodeID(2914)
