@@ -1,9 +1,7 @@
 Sorting = (arr) => {
-    var swapp;
     var n = arr.length - 1;
     var x = arr;
-    do{
-        swapp = false;
+const swaping = arr.reduce(function(item){
         for(var i=0;i<n;i++)
         {
             if(x[i] < x[i+1])
@@ -11,13 +9,12 @@ Sorting = (arr) => {
                 var temp = x[i]
                 x[i] = x[i+1]
                 x[i+1] = temp
-                swapp = true
             }
         }
         n--;
-    } while (swapp);
     return x;
-
+    })
+    console.log(swaping)
 }
 
-console.log(Sorting([1,4,3,2]))
+Sorting([10,8,9,5,90])
